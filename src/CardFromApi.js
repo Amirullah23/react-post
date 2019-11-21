@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
+
+const Url = process.env.REACT_APP_PLACE
+
 
 // import Axios from 'axios'
+
 
 export default class CardFromApi extends Component {
     constructor(props){
@@ -20,7 +25,7 @@ export default class CardFromApi extends Component {
         
         
 
-        fetch(`https://jsonplaceholder.typicode.com/users`)
+        fetch(`${Url}/users`)
         .then(Response => {
           return Response.json();
         })
@@ -32,7 +37,7 @@ export default class CardFromApi extends Component {
 
 
 
-        fetch(`https://jsonplaceholder.typicode.com/posts`)
+        fetch(`${Url}/posts`)
         .then(Response => {
           return Response.json();
         })
@@ -62,13 +67,11 @@ export default class CardFromApi extends Component {
                     return (
                        
                     <div className="col-md-4" style={{width : 800}} key={key} >
-                       <h3> {item.name}</h3>
+                       <h3> <Link to={`/${item.id}`}>{item.name}</Link></h3>
                     <p>Email : {item.email}</p>
                     <p>Phone :{item.phone}</p>
                     <p>WebSite :{item.website}</p>
                     <p>Company :{item.company.name}</p>
-
-
                         </div>
                     )
                 })}
@@ -77,12 +80,6 @@ export default class CardFromApi extends Component {
         )
     }
 }
-
-
-
-
-
-
 
 
 
