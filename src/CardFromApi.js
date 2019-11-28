@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 
-const Url = process.env.REACT_APP_PLACE
+const Url = 'https://jsonplaceholder.typicode.com'
 
 
 // import Axios from 'axios'
